@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lista de Usuários</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 30px auto; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    button {
+        margin-top: 20px;
+        padding: 10px;
+        width: 105%;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button a{
+        text-decoration: none;
+        color: white;
+      }
+  
+      button:hover {
+        background-color: #0056b3;
+      }
+  </style>
+</head>
+<body>
+  <h2>Usuários Cadastrados</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody id="user-table-body"></tbody>
+  </table>
+  <button>
+      <a href="/user/cadastrar">Cadastrar novo usuário</a>
+  </button>
+
+  <script>
+    fetch('/user/api/listar')
+      .then(res => res.json())
+      .then(users => {
+        const tbody = document.getElementById('user-table-body');
+        users.forEach(user => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${user.id}</td>
+            <td>${user.nome}</td>
+            <td>${user.email}</td>
+          `;
+          tbody.appendChild(row);
+        });
+      })
+      .catch(err => {
+        console.error('Erro ao carregar usuários:', err);
+      });
+  </script>
+</body>
+</html>

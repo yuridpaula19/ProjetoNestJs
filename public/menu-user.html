@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu de Usuário</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #f0f0f0;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 10px;
+      text-decoration: none;
+      color: white;
+      background-color: #007BFF;
+      padding: 12px 24px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Menu de Usuários</h1>
+    <nav>
+      <a href="/user/cadastrar">Cadastrar Usuário</a>
+      <a href="/user/listar">Listar Usuários</a>
+    </nav>
+  </div>
+</body>
+</html>
