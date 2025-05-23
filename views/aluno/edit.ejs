@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Aluno</title>
+</head>
+<body>
+  <h1>Editar Aluno</h1>
+  <form action="/aluno/<%= aluno.id %>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome" value="<%= aluno.nome %>" required>
+    <button type="submit">Atualizar</button>
+  </form>
+  <a href="/aluno">Voltar</a>
+</body>
+</html>

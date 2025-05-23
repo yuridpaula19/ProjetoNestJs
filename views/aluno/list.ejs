@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Alunos</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1>Lista de Alunos</h1>
+  <ul>
+    <% alunos.forEach(function(aluno) { %>
+      <li>
+        <%= aluno.nome %>
+        <a href="/aluno/<%= aluno.id %>/edit">Editar</a>
+        <a href="/aluno/<%= aluno.id %>/delete">Deletar</a>
+      </li>
+    <% }); %>
+  </ul>
+  <a href="/aluno/new">Novo Aluno</a>
+</body>
+</html>
