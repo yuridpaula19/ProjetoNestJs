@@ -7,14 +7,15 @@ import { join } from 'path';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) { }
+  constructor(private readonly userService: UserService) {}
 
   @Post()
   create(@Body() dto: CreateUserDto) {
     return this.userService.create(dto);
   }
 
-  @Get()
+
+  @Get('menu')
   getMenu(@Res() res: Response) {
     res.sendFile(join(__dirname, '..', '..', 'public', 'menu-user.html'));
   }
@@ -29,6 +30,7 @@ export class UserController {
     res.sendFile(join(__dirname, '..', '..', 'public', 'listar-user.html'));
   }
 
+  // API para listar usuários em JSON
   @Get('api/listar')
   async listarUsuariosApi(@Res() res: Response) {
     const users = await this.userService.findAll();
@@ -54,5 +56,4 @@ export class UserController {
   getEditarPage(@Res() res: Response) {
     res.sendFile(join(__dirname, '..', '..', 'public', 'editar-user.html'));
   }
-
 }
